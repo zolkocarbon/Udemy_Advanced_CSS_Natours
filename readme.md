@@ -2,14 +2,11 @@
 
 ### Process of building CSS sheet
 - Block Element Modifier - BEM
-
-    Example
-
-    .block {}
-
-    .block__element {}
-
-    .block__element--modifier {}
+    ```css
+        .block {};
+        .block__element {}; /* two underscores */
+        .block__element--modifier {};
+    ```
 
 ### What is SASS?
 - CSS preprocessor, an extension of CSS
