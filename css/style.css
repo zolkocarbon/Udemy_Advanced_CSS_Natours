@@ -1,0 +1,124 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* resetting all browsers to clean start state */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+/* put these attributes in body because all children will inderit behavior of body */
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.80),
+        rgba(40, 180, 133, 0.80)),
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+/* background picture has to be second definition as you want the gradient to have opacity and show thru */
+/* background-size: cover; fit background in viewport */
+/* background-position: top; crop bottom of image during resize, could also do bottom or center */
+/* clip-path: polygon(0 0, x y, x y) */
+/* http://bennettfeely.com/clippy/ */
+/* vh works with viewport height while % works with size of parent element that % is in */
+/* https://stackoverflow.com/questions/31039979/css-units-what-is-the-difference-between-vh-vw-and%E2%80%8B */
+/* parent element for logo-box below so set position to relative */
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+/* absolute position from parent element, in this case .header, since .logo-box is absolute make .header relative */
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+}
+/* without the transform the top left would reffer to the top left corner */
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+}
+/* backface-visibility is to fix text shake during end of animation */
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    animation-delay: 0.5s;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation: moveInRight 2s ease-out; /* short hand notation to above */
+    animation-delay: 0.5s;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+/* for browser performance it's best to only animate opacity and transform */
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
