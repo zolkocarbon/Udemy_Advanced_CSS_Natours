@@ -1,6 +1,6 @@
-#Notes from Udemy Course Advanced CSS and SASS
+# Notes from Udemy Course Advanced CSS and SASS
 
-###Process of building CSS sheet
+### Process of building CSS sheet
 - Block Element Modifier - BEM
 
     Example
@@ -11,7 +11,7 @@
 
     .block__element--modifier {}
 
-###What is SASS?
+### What is SASS?
 - CSS preprocessor, an extension of CSS
 - Called preprocessor because a compiler is needed to change it to CSS code
 - Features
