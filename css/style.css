@@ -54,6 +54,12 @@ body {
 
 .logo {
     height: 35px;
+    backface-visibility: hidden;
+}
+
+.logo:hover {
+    animation: moveInRight 2s ease-out;
+    animation-delay: 0.5s;
 }
 
 .text-box {
@@ -61,6 +67,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
     /* background-color: red; */
 }
 /* without the transform the top left would reffer to the top left corner */
@@ -69,6 +76,7 @@ body {
     color: #fff;
     text-transform: uppercase;
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 /* backface-visibility is to fix text shake during end of animation */
 
@@ -82,7 +90,7 @@ body {
     animation-duration: 2s;
     animation-timing-function: ease-out;
     /* animation-iteration-count: 3; */
-    animation-delay: 0.5s;
+    /* animation-delay: 0.5s; */
 }
 
 .heading-primary-sub {
@@ -91,7 +99,6 @@ body {
     font-weight: 700;
     letter-spacing: 17.4px;
     animation: moveInRight 2s ease-out; /* short hand notation to above */
-    animation-delay: 0.5s;
 }
 
 @keyframes moveInLeft {
@@ -122,3 +129,75 @@ body {
         transform: translate(0);
     }
 }
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+/* inline-block will prevent element from spanning entire container */
+/* choose a large number for border-radius, could have been 1000 and the effect would be the same */
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0, 0.2);
+}
+/* negative is up in Y */
+/* box shadow: x y blur color */
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+/* first two properties are required for ::after pseudo-code to work */
+
+.btn-white::after {
+    background-color: #fff;
+}
+`
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 2s ease-out 1s;
+    animation-fill-mode: backwards;
+}
+/* last value is animation delay */
+/* fill mode will allow initial keyframe property to display upon page refresh */
+/* in this case it hides the button on initial page refresh */
