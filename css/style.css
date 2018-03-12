@@ -8,17 +8,23 @@ Dark green: #28b485
 */
 
 /* resetting all browsers to clean start state */
-* {
+*,
+*::after,
+*::before  {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
+/* chagne box-sizing behavior to be inherited from body throughout page */
+/* box-size here and box-size in body work together */
 
 html {
-    font-size: 10px;
+    font-size: 62.5%;
 }
 /* root font size is set in html selector, this enables rem to be used throughout css */
 /* use 10 as root size as now 1.6rem is easily calculated to 16px */
+/* changed line 18 to %, this allows user settings to be used and we want 10px initial */
+/* and browser default is 16px so 10/16= 62.5% */
 
 body {
     font-family: "Lato", sans-serif;
@@ -27,6 +33,7 @@ body {
     line-height: 1.7;
     color: #777;
     padding: 3rem;
+    box-sizing: border-box;
 }
 /* put these attributes in body because all children will inderit behavior of body */
 
@@ -51,24 +58,24 @@ body {
 /* https://stackoverflow.com/questions/31039979/css-units-what-is-the-difference-between-vh-vw-and%E2%80%8B */
 /* parent element for logo-box below so set position to relative */
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 /* absolute position from parent element, in this case .header, since .logo-box is absolute make .header relative */
 
-.logo {
+.header__logo {
     height: 3.5rem;
     backface-visibility: hidden;
 }
 
-.logo:hover {
+.header__logo:hover {
     animation: moveInRight 2s ease-out;
     animation-delay: 0.5s;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -86,7 +93,7 @@ body {
 }
 /* backface-visibility is to fix text shake during end of animation */
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -99,7 +106,7 @@ body {
     /* animation-delay: 0.5s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -173,7 +180,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0, 0.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -192,7 +199,7 @@ body {
 }
 /* first two properties are required for ::after pseudo-code to work */
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -201,7 +208,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom 2s ease-out 1s;
     animation-fill-mode: backwards;
 }
