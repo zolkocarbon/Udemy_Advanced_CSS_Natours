@@ -16,6 +16,10 @@
 - Called preprocessor because a compiler is needed to change it to CSS code
 - Features
     + Variables: for reusable values such as color and font size
+      ```css
+        $color-primary: #f9ed69; //comment in SASS
+      ```
+
     + Nesting: nest selectors inside one another
     + Operators: for mathmatical operations inside CSS
     + Partials and imports: to write CSS in different files and import them all into one single file
