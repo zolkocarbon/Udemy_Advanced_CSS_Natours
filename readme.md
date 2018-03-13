@@ -18,6 +18,25 @@
       ```
 
     + Nesting: nest selectors inside one another
+        ```css
+        .navigation {
+             list-style: none;
+            float: left;
+  
+            li {
+                display: inline-block;
+                margin-left: 30px;
+    
+                &:first-child {
+                    margin: 0;
+                }
+            }
+    
+            a {
+                 @include style-link-text($color-text-dark);
+            } 
+        }
+        ```
     + Operators: for mathmatical operations inside CSS
     + Partials and imports: to write CSS in different files and import them all into one single file
     + Mixins: to write reusable pieces of CSS code
