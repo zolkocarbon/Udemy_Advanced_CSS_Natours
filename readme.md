@@ -18,9 +18,9 @@
       ```
 
     + Nesting: nest selectors inside one another
-        ```css
+        ```scss
         .navigation {
-             list-style: none;
+            list-style: none;
             float: left;
   
             li {
