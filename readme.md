@@ -12,7 +12,7 @@
 - CSS preprocessor, an extension of CSS
 - Called preprocessor because a compiler is needed to change it to CSS code
 - Two syntax methods, SASS and SCSS, SCSS is used in this course
-- Features [Link to CodePen](https://codepen.io/zolkocarbon/pen/XEmJJg) using all examples below
+- **Features** ([Link to CodePen](https://codepen.io/zolkocarbon/pen/XEmJJg) using all examples below)
     + Variables: for reusable values such as color and font size
     ```scss
     $color-primary: #f9ed69; //comment in SASS
@@ -38,7 +38,7 @@
             }
         }
         ```
-    + Operators: for mathmatical operations inside CSS (example below in [Functions]("#functions"))
+    + Operators: for mathmatical operations inside CSS (example below in [Functions](#functions))
     + Partials and imports: to write CSS in different files and import them all into one single file
     + Mixins: to write reusable pieces of CSS code
         ```scss
@@ -66,7 +66,7 @@
                 @include style-link-text($color-text-light);
             }
         ```
-    + <span id="functions> Functions: like mixins, with the difference that they produce a value for later use </span>
+    + <a name="functions"> Functions: like mixins, with the difference that they produce a value for later use </a>
         ```scss
         @function divide($a, $b) {
             @return $a / $b;
