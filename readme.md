@@ -127,7 +127,7 @@
         create duplicates of code in the btn-main and btn-hot seperate selectors.
     + Control directives: for writing complex conditionals and loops (not covered in this course)
 
-## Nodejs installation and 
+## Nodejs installation and SASS setup
 1. Install nodejs from [here](https://nodejs.org/en/) on your computer.
     > Note: I was having issues installing node. After an hour of searching forums it turned out that I needed to turn off the virus protection.
 
@@ -144,7 +144,23 @@
 1. Install SASS npm package by typing *npm install node-sass --save-dev* in the terminal.
     + The --save-dev saves the development dependencie in the package.json file.
     + Other packages such as jQuery should be saved as *--save* because they are non-development dependencies.
-    + To uninstall a package type *npm uninstall jquery --save* in the terminal.
+    + To uninstall a package (jQuery example) type *npm uninstall jquery --save* in the terminal.
+
+## Creating and compiling SASS/SCSS file.
+    1. Create sass folder.
+    1. Create main.scss file.
+    1. Copy all content of style.css into it.
+    1. Modify package.json file
+        ```javascript
+        "scripts": {
+            "compile:sass": "node-sass sass/main.scss css/style2.css"
+        },
+       ```
+        + *compile:sass* is the name of the command we will use in the terminal.
+        + *sass/main.scss* is the name and location of the SASS file to compile.
+        + *css/style2.css* is the CSS file you want SASS to create and it's location.
+    1. Type *npm run compile:sass* in the terminal to compile the SASS file.
+    
 
 
 
