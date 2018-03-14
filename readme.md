@@ -153,13 +153,21 @@
 1. Modify package.json file
     ```javascript
         "scripts": {
-            "compile:sass": "node-sass sass/main.scss css/style2.css"
+            "compile:sass": "node-sass sass/main.scss css/style2.css -w"
         },
     ```
     + *compile:sass* is the name of the command we will use in the terminal.
     + *sass/main.scss* is the name and location of the SASS file to compile.
     + *css/style2.css* is the CSS file you want SASS to create and it's location.
+    + *-w* is a watch command that will keep the compiler running in the terminal and update the CSS file every time the SASS file is saved.
 1. Type *npm run compile:sass* in the terminal to compile the SASS file.
+
+## Automatically reloading a page on file changes
+1. Run *npm install live-server -g* to install live-server globally
+    + The *-g* is for a global installation of the package so that it could be used on any project.
+1. Run *live-server* to activate the package which will automatically open the html file.
+    + This will run a local server and refresh the page every time a page edit and save occurs.
+    + For this to work with the SASS compiler we need two terminals running, one for the SASS compiler watching and one for this package.
     
 
 
