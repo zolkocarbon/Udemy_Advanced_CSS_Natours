@@ -146,16 +146,16 @@
     + Other packages such as jQuery should be saved as *--save* because they are non-development dependencies.
     + To uninstall a package (jQuery example) type *npm uninstall jquery --save* in the terminal.
 
-## Creating and compiling SASS/SCSS file.
+## Creating and compiling SASS/SCSS file
     1. Create sass folder.
     1. Create main.scss file.
     1. Copy all content of style.css into it.
     1. Modify package.json file
-        ```javascript
+```javascript
         "scripts": {
             "compile:sass": "node-sass sass/main.scss css/style2.css"
         },
-       ```
+```
         + *compile:sass* is the name of the command we will use in the terminal.
         + *sass/main.scss* is the name and location of the SASS file to compile.
         + *css/style2.css* is the CSS file you want SASS to create and it's location.
