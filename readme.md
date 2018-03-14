@@ -78,5 +78,78 @@
         ```
         SASS also features built-in functions. [Link to list](http://sass-lang.com/documentation/Sass/Script/Functions.html) of built in fuctions.
     + Extends: to make different selectors inherit declarations that are common to all of them
+        Before using extends
+        ```scss
+        .btn-main:link,
+        .btn-hot:link {
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 100px;
+            width: $width-button;
+            @include style-link-text($color-text-light);
+        }
+
+        .btn-main {
+          &:link {
+            background-color: $color-secondary;
+          }
+
+          &:hover {
+            background-color: darken($color-secondary, 15%);
+          } // darken is built-in SASS function
+        }
+        ```
+        After using extend
+        ```scss
+            %btn-placeholder {
+                padding: 10px;
+                display: inline-block;
+                text-align: center;
+                border-radius: 100px;
+                width: $width-button;
+                @include style-link-text($color-text-light);
+            }
+
+            .btn-main {
+                &:link {
+                  @extend %btn-placeholder;
+                  background-color: $color-secondary;
+                }
+
+                &:hover {
+                    background-color: darken($color-secondary, 15%);
+                } // darken is built-in SASS function
+            }
+        ```
+        Note: while this may look similar to a mixin the complied CSS code does look different.
+        The extend will create a class selector .btn-main:link, .btn-hot:link {} while the mixin would 
+        create duplicates of code in the btn-main and btn-hot seperate selectors.
     + Control directives: for writing complex conditionals and loops (not covered in this course)
+
+## Nodejs installation and 
+1. Install nodejs from [here](https://nodejs.org/en/)
+
+Note: I was having issues installing node. After an hour of searching forums it turned out that I needed
+
+to turn off the virus protection.
+
+1. Confirm node is installed by typing *node -v* in the terminal. (I did this in the Visual Studio terminal)
+
+1. Navigate into project folder using the terminal commands.
+
+1. Create package.json file by typing *npm init* in the terminal.
+    + The prompt will prompt several questions for creating the file. In most cases the fields can be left blank or default values used.
+    + If you download/clone someone's project and want to install all dependencies simply run *npm install* in the terminal and 
+    all dependencies in the package.json file will be installed. This illustrates the main purpose of this file. Another scenario is working on one project on more than one computer.
+    + When uploading a project to a repository don't upload the node_modules file as it is not necessary.
+
+1. Install SASS npm package by typing *npm install node-sass --save-dev* in the terminal.
+    + The --save-dev saves the development dependencie in the package.json file.
+    + Other packages such as jQuery should be saved as *--save* because they are non-development dependencies.
+    + To uninstall a package type *npm uninstall jquery --save* in the terminal.
+
+
+
+
 
