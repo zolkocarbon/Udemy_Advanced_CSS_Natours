@@ -156,9 +156,9 @@
             "compile:sass": "node-sass sass/main.scss css/style2.css"
         },
     ```
-        + *compile:sass* is the name of the command we will use in the terminal.
-        + *sass/main.scss* is the name and location of the SASS file to compile.
-        + *css/style2.css* is the CSS file you want SASS to create and it's location.
+    + *compile:sass* is the name of the command we will use in the terminal.
+    + *sass/main.scss* is the name and location of the SASS file to compile.
+    + *css/style2.css* is the CSS file you want SASS to create and it's location.
 1. Type *npm run compile:sass* in the terminal to compile the SASS file.
     
 
