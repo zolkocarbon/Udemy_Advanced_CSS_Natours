@@ -128,11 +128,8 @@
     + Control directives: for writing complex conditionals and loops (not covered in this course)
 
 ## Nodejs installation and 
-1. Install nodejs from [here](https://nodejs.org/en/)
-
-Note: I was having issues installing node. After an hour of searching forums it turned out that I needed
-
-to turn off the virus protection.
+1. Install nodejs from [here](https://nodejs.org/en/) on your computer.
+    > Note: I was having issues installing node. After an hour of searching forums it turned out that I needed to turn off the virus protection.
 
 1. Confirm node is installed by typing *node -v* in the terminal. (I did this in the Visual Studio terminal)
 
