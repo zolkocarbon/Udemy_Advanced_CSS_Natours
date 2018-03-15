@@ -1,6 +1,12 @@
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark:#28b485;
+
+$color-gray-dark: #777;
+$color-white: #fff;
+$color-black: #000;
+
+
 /* resetting all browsers to clean start state */
 *,
 *::after,
@@ -25,7 +31,7 @@ body {
     font-weight: 400;
     /* font-size: 16px; */
     line-height: 1.7;
-    color: #777;
+    color: $color-gray-dark;
     padding: 3rem;
     box-sizing: border-box;
 }
@@ -35,77 +41,63 @@ body {
     height: 95vh;
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-primary-light, 0.80),
+        rgba($color-primary, 0.80),
         rgba($color-primary-dark, 0.80)),
         url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
-}
-/* background picture has to be second definition as you want the gradient to have opacity and show thru */
-/* background-size: cover; fit background in viewport */
-/* background-position: top; crop bottom of image during resize, could also do bottom or center */
-/* clip-path: polygon(0 0, x y, x y) */
-/* http://bennettfeely.com/clippy/ */
-/* vh works with viewport height while % works with size of parent element that % is in */
-/* https://stackoverflow.com/questions/31039979/css-units-what-is-the-difference-between-vh-vw-and%E2%80%8B */
-/* parent element for logo-box below so set position to relative */
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-/* absolute position from parent element, in this case .header, since .logo-box is absolute make .header relative */
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__logo {
-    height: 3.5rem;
-    backface-visibility: hidden;
+    &__logo {
+        height: 3.5rem;
+        backface-visibility: hidden;
+    }
+    
+    &__logo:hover {
+        animation: moveInRight 2s ease-out;
+        animation-delay: 0.5s;
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
-
-.header__logo:hover {
-    animation: moveInRight 2s ease-out;
-    animation-delay: 0.5s;
-}
-
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    /* background-color: red; */
-}
-/* without the transform the top left would reffer to the top left corner */
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 6rem;
-}
-/* backface-visibility is to fix text shake during end of animation */
 
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
-    /* animation-iteration-count: 3; */
-    /* animation-delay: 0.5s; */
-}
-
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 2s ease-out; /* short hand notation to above */
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 2s ease-out; /* short hand notation to above */
+    }
 }
 
 @keyframes moveInLeft {
@@ -148,64 +140,60 @@ body {
     }
 }
 
-.btn:link,
-.btn:visited {
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    position: relative;
-}
-/* inline-block will prevent element from spanning entire container */
-/* choose a large number for border-radius, could have been 1000 and the effect would be the same */
+.btn {
+    &:link,
+    &:visited {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+    }
 
-.btn:hover {
-    transform: translateY(-.3rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
-}
-/* negative is up in Y */
-/* box shadow: x y blur color */
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0, 0.2);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom 2s ease-out 1s;
+        animation-fill-mode: backwards;
+    }
 }
 
-.btn--white {
-    background-color: #fff;
-    color: #777;
-}
 
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
-/* first two properties are required for ::after pseudo-code to work */
-
-.btn--white::after {
-    background-color: #fff;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.btn--animated {
-    animation: moveInBottom 2s ease-out 1s;
-    animation-fill-mode: backwards;
-}
-/* last value is animation delay */
-/* fill mode will allow initial keyframe property to display upon page refresh */
-/* in this case it hides the button on initial page refresh */

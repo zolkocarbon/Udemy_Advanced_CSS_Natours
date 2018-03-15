@@ -168,6 +168,69 @@
 1. Run *live-server* to activate the package which will automatically open the html file.
     + This will run a local server and refresh the page every time a page edit and save occurs.
     + For this to work with the SASS compiler we need two terminals running, one for the SASS compiler watching and one for this package.
+
+## Natours project SASS file formatting
+Note: original CSS file is style.css and it has a lot of annotation to the style. main.scss is now the new style sheet.
+```scss
+    .header {
+        //some properties here for header selector
+        &__logo-box {
+            //this is equivalent to .header__logo-box
+        }
+    }
+```
+Example before applying SASS nesting
+```scss
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.80),
+        rgba(40, 180, 133, 0.80)),
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+    backface-visibility: hidden;
+}
+```
+After nesting and SASS variables change
+```scss
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary, 0.80),
+        rgba($color-primary-dark, 0.80)),
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+        backface-visibility: hidden;
+    }
+```
+
     
 
 
