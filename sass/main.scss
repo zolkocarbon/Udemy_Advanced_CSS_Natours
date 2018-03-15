@@ -1,199 +1,23 @@
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark:#28b485;
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-$color-gray-dark: #777;
-$color-white: #fff;
-$color-black: #000;
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilites";
+
+@import "components/buttons";
+
+@import "layout/header";
+
+@import "pages/home";
 
 
-/* resetting all browsers to clean start state */
-*,
-*::after,
-*::before  {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
-/* chagne box-sizing behavior to be inherited from body throughout page */
-/* box-size here and box-size in body work together */
 
-html {
-    font-size: 62.5%;
-}
-/* root font size is set in html selector, this enables rem to be used throughout css */
-/* use 10 as root size as now 1.6rem is easily calculated to 16px */
-/* changed line 18 to %, this allows user settings to be used and we want 10px initial */
-/* and browser default is 16px so 10/16= 62.5% */
 
-body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: $color-gray-dark;
-    padding: 3rem;
-    box-sizing: border-box;
-}
-/* put these attributes in body because all children will inderit behavior of body */
 
-.header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary, 0.80),
-        rgba($color-primary-dark, 0.80)),
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    position: relative;
 
-    &__logo-box {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;
-    }
 
-    &__logo {
-        height: 3.5rem;
-        backface-visibility: hidden;
-    }
-    
-    &__logo:hover {
-        animation: moveInRight 2s ease-out;
-        animation-delay: 0.5s;
-    }
-    
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-}
-
-.heading-primary {
-    color: $color-white;
-    text-transform: uppercase;
-    backface-visibility: hidden;
-    margin-bottom: 6rem;
-
-    &--main {
-        display: block;
-        font-size: 6rem;
-        font-weight: 400;
-        letter-spacing: 3.5rem;
-    
-        animation-name: moveInLeft;
-        animation-duration: 2s;
-        animation-timing-function: ease-out;
-    }
-    
-    &--sub {
-        display: block;
-        font-size: 2rem;
-        font-weight: 700;
-        letter-spacing: 1.75rem;
-        animation: moveInRight 2s ease-out; /* short hand notation to above */
-    }
-}
-
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-    80% {
-        transform: translateX(1rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-/* for browser performance it's best to only animate opacity and transform */
-
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    80% {
-        transform: translateX(-1rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(5rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-.btn {
-    &:link,
-    &:visited {
-        font-size: 1.6rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4rem;
-        display: inline-block;
-        border-radius: 10rem;
-        transition: all .2s;
-        position: relative;
-    }
-
-    &:hover {
-        transform: translateY(-.3rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-
-        &::after {
-            transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
-        }
-    }
-
-    &:active {
-        transform: translateY(-.1rem);
-        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
-    }
-
-    &--white {
-        background-color: $color-white;
-        color: $color-gray-dark;
-
-        &::after {
-            background-color: $color-white;
-        }
-    }
-
-    &::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s;
-    }
-
-    &--animated {
-        animation: moveInBottom 2s ease-out 1s;
-        animation-fill-mode: backwards;
-    }
-}
 
 
