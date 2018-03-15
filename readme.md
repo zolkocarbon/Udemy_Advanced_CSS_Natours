@@ -12,6 +12,7 @@
 - CSS preprocessor, an extension of CSS
 - Called preprocessor because a compiler is needed to change it to CSS code
 - Two syntax methods, SASS and SCSS, SCSS is used in this course
+- [List of resources](https://github.com/HugoGiraudel/awesome-sass) for SASS.
 - **Features** ([Link to CodePen](https://codepen.io/zolkocarbon/pen/XEmJJg) using all examples below)
     + Variables: for reusable values such as color and font size
     ```scss
@@ -169,7 +170,7 @@
     + This will run a local server and refresh the page every time a page edit and save occurs.
     + For this to work with the SASS compiler we need two terminals running, one for the SASS compiler watching and one for this package.
 
-## Natours project SASS file formatting
+## Natours project SASS Nesting
 Note: original CSS file is style.css and it has a lot of annotation to the style. main.scss is now the new style sheet.
 ```scss
     .header {
@@ -229,7 +230,73 @@ After nesting and SASS variables change
         height: 3.5rem;
         backface-visibility: hidden;
     }
+}
 ```
+
+## Natours Project 7-1 Architecture
+1. [Link to 7-1 Architecture](https://github.com/HugoGiraudel/sass-boilerplate) example on GitHub as a Boilerplate.
+1. Create *base* folder in sass folder.
+1. Create *_base.scss* file inside base folder. All partial files start with an underscore for convention.
+1. Add the following to the top of main.scss. This will include the partial. Note that the underscore and .scss are not required as shown here.
+    ```scss
+    @import "base/base";
+    ```
+1. Create remaining files in SASS folder which can be seen in this repo or the link above.
+
+## Layout types
+    + Float Layout: most supported in browsers and used in this project.
+    + Flexbox
+    + CSS Grid
+
+## Implementing Float Layout
+```scss
+.row {
+    max-width: $grid-width; //take up 1140px if available, 1140px is standard
+    background-color: #eee;
+    margin: 0 auto; //center row
+    
+    &:not(:last-child) { // all rows except the last one
+        margin-bottom: $gutter-vertical;
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        background-color: orangered;
+        float: left;
+        
+        &:not(:last-child) { //margin for all columns except the last one (furthest right)
+            margin-right: $gutter-horizontal;
+        }
+    }
+}
+```
+Since the only property that will change between columns is the width we can move the rest of the styles to seperate selector
+```scss
+.row {
+    max-width: $grid-width; //take up 1140px if available, 1140px is standard
+    background-color: #eee;
+    margin: 0 auto; //center row
+    
+    &:not(:last-child) { // all rows except the last one
+        margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [class^="col-"] { //select all classes that start with "col-"
+        background-color: orangered;
+        float: left;
+        
+        &:not(:last-child) { //margin for all columns except the last one (furthest right)
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+```
+
 
     
 
