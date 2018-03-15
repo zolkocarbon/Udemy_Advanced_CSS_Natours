@@ -5,10 +5,11 @@
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
-@import "base/utilites";
+@import "base/utilities"; 
 
-@import "components/buttons";
+@import "components/button";
 
+@import "layout/grid";
 @import "layout/header";
 
 @import "pages/home";

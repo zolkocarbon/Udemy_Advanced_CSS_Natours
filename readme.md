@@ -296,6 +296,31 @@ Since the only property that will change between columns is the width we can mov
         width: calc((100% - #{$gutter-horizontal}) / 2);
     }
 ```
+## Emmet in Visual Studio Code
++ This is an extension built-in to VSC that allows fast html writing.
++ [Instructors cheat sheet.](https://docs.emmet.io/cheat-sheet/)
++ To write <div class="text"></div> simply type *.text* and then press TAB.
++ To write <section class="text"></section> type *section.text* and then press TAB.
+
+
+## Next section of project <main>
++ Thinking about components: the section after the header has components such as buttons, typography and images.
++ How and why to use utility classes: to use a common style throught website
+    ```scss
+     .u-center-text { text-align: center; }
+    ```
++ How to use the *background-clip* property. This will allow the background to only show behind the text
+    ```scss
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text; // background gets clipped exactly where text is
+    color: transparent;
+    ```
++ How to *transform* multiple properties simultaneously
+```scss
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+```
++ How to use the *outline-offset* property together with *outline*
++ How to style elements tha are NOT hovered while others are
 
 
     

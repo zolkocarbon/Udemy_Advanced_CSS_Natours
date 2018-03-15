@@ -1,0 +1,6 @@
+.section-about {
+    background-color: $color-gray-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh; // shift block up to cover clip-path header wedge section
+    //header was at 95vh and wedge was at 75vh so difference is 20vh
+}
