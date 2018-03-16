@@ -299,9 +299,15 @@ Since the only property that will change between columns is the width we can mov
 ## Emmet in Visual Studio Code
 + This is an extension built-in to VSC that allows fast html writing.
 + [Instructors cheat sheet.](https://docs.emmet.io/cheat-sheet/)
-+ To write <div class="text"></div> simply type *.text* and then press TAB.
-+ To write <section class="text"></section> type *section.text* and then press TAB.
-+ *.composition>(img.composition__photo.composition__photo--p1)*3* produces
++ To write line below type *.text* and then press TAB.
+```html 
+<div class="text"></div>
+```
++ To write line below type *section.text* and then press TAB.
+``` html 
+<section class="text"></section>
+```
++ *.composition>(img.composition__photo.composition__photo--p1)\*3* produces
     ```html
     <div class="composition">
         <img src="" alt="" class="composition__photo composition__photo--p1">
@@ -314,21 +320,48 @@ Since the only property that will change between columns is the width we can mov
 ## Next section of project <main>
 + Thinking about components: the section after the header has components such as buttons, typography and images.
 + How and why to use utility classes: to use a common style throught website
-    ```scss
-     .u-center-text { text-align: center; }
-    ```
+```scss
+.u-center-text { text-align: center; }
+```
 + How to use the *background-clip* property. This will allow the background to only show behind the text
-    ```scss
-    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    -webkit-background-clip: text; // background gets clipped exactly where text is
-    color: transparent;
-    ```
+```scss
+background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+-webkit-background-clip: text; // background gets clipped exactly where text is
+color: transparent;
+```
 + How to *transform* multiple properties simultaneously
-    ```scss
-        transform: skewY(2deg) skewX(15deg) scale(1.1);
-    ```
-+ How to use the *outline-offset* property together with *outline*
-+ How to style elements tha are NOT hovered while others are
+```scss
+transform: skewY(2deg) skewX(15deg) scale(1.1);
+```
++ How to use the *outline-offset* property together with *outline* to create an outline around an image with an offset. Example can be found in [this file](sass/components/compositions.scss)
+```scss
+.composition {
+
+    &__photo {
+        outline-offset: 2rem;
+
+    &:hover {
+        outline: 1.5rem solid $color-primary;
+}
+```
++ How to style elements tha are NOT hovered while others are. Example can be found in [this file](sass/components/compositions.scss)
+```scss
+.composition {
+    position: relative;
+    transition: all 0.2s;
+
+    &:hover  { // The instructor added &__photo:not(:hover) but I don't see a difference in behavior
+        transform: scale(0.95);
+    }
+
+    &__photo {
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+```
 
 
     
