@@ -372,6 +372,7 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 ```html
 <link rel="stylesheet" href="css/icon-font.css">
 ```
+
     + Use the icon reference file to identify which icon you want to use and add *icon-* in front of it as a class name
 ```html
 <i class="feature-box__icon icon-basic-map"></i>
