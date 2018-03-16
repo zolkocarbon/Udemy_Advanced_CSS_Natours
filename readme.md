@@ -366,8 +366,16 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 ## Building the features section
 + How to include and use the icon font.
     + [Link to Linea](http://linea.io/)
-    + In this project we used the *basic/_ICONFONT/fonts* and *basic/_ICONFONTS/styles.css* files and moved them into the project css folder.
+    + In this project we used the *basic/_ICONFONT/fonts* and *basic/_ICONFONTS/styles.css* files and moved them into the project css folder along with the [icon reference file](css/fonts/icons-reference.html)
     + Note: renamed styles.css to icon-font.css
+    + Syle sheet was added to the index page
+    ```html
+<link rel="stylesheet" href="css/icon-font.css">
+    ```
+    + Use the icon reference file to identify which icon you want to use and add *icon-* in front of it as a class name
+    ```html
+<i class="feature-box__icon icon-basic-map"></i>
+    ```
 
 + Another way to create the "skewed section" design. [Used here](sass/pages/_home.scss)
     + This will skew all the content. The background image and the four boxes in the section. To undo the skew for the boxes look at the next section.
