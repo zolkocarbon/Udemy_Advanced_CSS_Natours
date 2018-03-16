@@ -365,8 +365,9 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 
 ## Building the features section
 #### How to include and use the icon font.
-+ [Link to Linea](http://linea.io/)
++ [Link to Linea](http://linea.io/) which is the icon font used in this course. Download all sets.
 + In this project we used the *basic/_ICONFONT/fonts* and *basic/_ICONFONTS/styles.css* files and moved them into the project css folder along with the [icon reference file](css/fonts/icons-reference.html)
++ While all sets were downloaded the features section uses fonts from all the options (SVG, PNG, Fonts) in order to get the gradient background effect for the icon.
 + Note: renamed styles.css to icon-font.css
 + Syle sheet was added to the index page
 ```html
@@ -380,7 +381,7 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 ```
 #### Another way to create the "skewed section" design.
 +  [Used here](sass/pages/_home.scss)
-    + This will skew all the content. The background image and the four boxes in the section. To undo the skew for the boxes look at the next section.
++ This will skew all the content. The background image and the four boxes in the section. To undo the skew for the boxes look at the next section.
 ```scss
 .section-features {
     transform: skewY(-7deg);
