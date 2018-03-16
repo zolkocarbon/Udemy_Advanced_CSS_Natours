@@ -333,7 +333,7 @@ color: transparent;
 ```scss
 transform: skewY(2deg) skewX(15deg) scale(1.1);
 ```
-+ How to use the *outline-offset* property together with *outline* to create an outline around an image with an offset. Example can be found in [this file](sass/components/compositions.scss)
++ How to use the *outline-offset* property together with *outline* to create an outline around an image with an offset. Example can be found in [this file](sass/components/composition.scss)
 ```scss
 .composition {
 
@@ -344,7 +344,7 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
         outline: 1.5rem solid $color-primary;
 }
 ```
-+ How to style elements tha are NOT hovered while others are. Example can be found in [this file](sass/components/compositions.scss)
++ How to style elements tha are NOT hovered while others are. Example can be found in [this file](sass/components/composition.scss)
 ```scss
 .composition {
     position: relative;
