@@ -333,7 +333,7 @@ color: transparent;
 ```scss
 transform: skewY(2deg) skewX(15deg) scale(1.1);
 ```
-+ How to use the *outline-offset* property together with *outline* to create an outline around an image with an offset. Example can be found in [this file](sass/components/composition.scss)
++ How to use the *outline-offset* property together with *outline* to create an outline around an image with an offset. Example can be found in [this file](sass/components/_composition.scss)
 ```scss
 .composition {
 
@@ -344,13 +344,13 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
         outline: 1.5rem solid $color-primary;
 }
 ```
-+ How to style elements tha are NOT hovered while others are. Example can be found in [this file](sass/components/composition.scss)
++ How to style elements tha are NOT hovered while others are. Example can be found in [this file](sass/components/_composition.scss)
 ```scss
 .composition {
     position: relative;
     transition: all 0.2s;
 
-    &:hover  { // The instructor added &__photo:not(:hover) but I don't see a difference in behavior
+    &:hover &__photo:not(:hover) { 
         transform: scale(0.95);
     }
 
@@ -361,6 +361,37 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
         }
     }
 }
+```
+
+## Building the features section
++ How to include and use the icon font.
+    + [Link to Linea](http://linea.io/)
+    + In this project we used the *basic/_ICONFONT/fonts* and *basic/_ICONFONTS/styles.css* files and moved them into the project css folder.
+    + Note: renamed styles.css to icon-font.css
+
++ Another way to create the "skewed section" design. [Used here](sass/pages/_home.scss)
+    + This will skew all the content. The background image and the four boxes in the section. To undo the skew for the boxes look at the next section.
+```scss
+.section-features {
+    transform: skewY(-7deg);
+}
+```
++ How and when to use the direct child. Also [Used here](sass/pages/_home.scss) Here we undo the skew for the four boxes in our feature section.
+```scss
+.section-features {
+    transform: skewY(-7deg) translateY(-10rem);
+
+    & > * { // select direct child, which in this case is .row
+        transform: skewY(7deg);
+    }
+}
+```
+HTML for this section where direct child selected is row
+```html
+<section class="section-features">
+    <div class="row">
+    </div>
+</section>
 ```
 
 

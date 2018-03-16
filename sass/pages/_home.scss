@@ -4,3 +4,19 @@
     margin-top: -20vh; // shift block up to cover clip-path header wedge section
     //header was at 95vh and wedge was at 75vh so difference is 20vh
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary, 0.80),
+        rgba($color-primary-dark, 0.80)),
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    
+    transform: skewY(-7deg) translateY(-10rem);
+
+    & > * { // select direct child, which in this case is .row
+        transform: skewY(7deg);
+    }
+}
