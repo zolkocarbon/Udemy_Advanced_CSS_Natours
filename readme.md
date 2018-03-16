@@ -301,6 +301,14 @@ Since the only property that will change between columns is the width we can mov
 + [Instructors cheat sheet.](https://docs.emmet.io/cheat-sheet/)
 + To write <div class="text"></div> simply type *.text* and then press TAB.
 + To write <section class="text"></section> type *section.text* and then press TAB.
++ *.composition>(img.composition__photo.composition__photo--p1)*3* produces
+    ```html
+    <div class="composition">
+        <img src="" alt="" class="composition__photo composition__photo--p1">
+        <img src="" alt="" class="composition__photo composition__photo--p1">
+        <img src="" alt="" class="composition__photo composition__photo--p1">
+    </div>     
+    ```
 
 
 ## Next section of project <main>
@@ -311,14 +319,14 @@ Since the only property that will change between columns is the width we can mov
     ```
 + How to use the *background-clip* property. This will allow the background to only show behind the text
     ```scss
-        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
     -webkit-background-clip: text; // background gets clipped exactly where text is
     color: transparent;
     ```
 + How to *transform* multiple properties simultaneously
-```scss
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-```
+    ```scss
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+    ```
 + How to use the *outline-offset* property together with *outline*
 + How to style elements tha are NOT hovered while others are
 

@@ -1,6 +1,6 @@
 .row {
     max-width: $grid-width; //take up 1140px if available, 1140px is standard
-    background-color: #eee;
+    //background-color: #eee;
     margin: 0 auto; //center row
     
     &:not(:last-child) { // all rows except the last one
@@ -10,7 +10,7 @@
     @include clearfix;
 
     [class^="col-"] { //select all classes that start with "col-"
-        background-color: orangered;
+        //background-color: orangered;
         float: left;
         
         &:not(:last-child) { //margin for all columns except the last one (furthest right)
