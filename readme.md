@@ -449,7 +449,7 @@ In order to hide the back of the card we use this property
 #### Using background blend modes
 This property blends layers, in our project its a gradient and an image. 
 
-Using this property causes the image to overflow outside parent so the fix is to use *overflow: hidden*
+Using this property causes the image to overflow outside parent so the fix is to use `overflow: hidden`
 
 Not supported in Internet Explorer.
 
@@ -472,8 +472,9 @@ Not supported in Internet Explorer.
         }
 ```
 
-#### How and when to use box-decoration-break
-
+#### How and when to use `box-decoration-break`
+![before](img/boxdecoration_before.jpg)
+![after](img/boxdecoration_after.jpg)
 
 
 
