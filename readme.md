@@ -475,6 +475,7 @@ Not supported in Internet Explorer.
 #### How and when to use `box-decoration-break`
 ![before](img/boxdecoration_before.jpg)
 ![after](img/boxdecoration_after.jpg)
+<img src="img/boxdecoration_after.jpg">
 
 
 
