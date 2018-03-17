@@ -4,12 +4,12 @@
     perspective: 150rem; // choose huge number, arbitrary
     -moz-perspective: 150rem; // firefox coverage
     position: relative; // this collapses the card to no height and eliminates perspective
-    height: 50rem; //fixes issue mentioned in line above
+    height: 52rem; //fixes issue mentioned in line above
     
 
     &__side {
         
-        height: 50rem;
+        height: 52rem;
         transition: all 0.8s ease;
         position: absolute;
         top: 0;
@@ -30,6 +30,14 @@
 
             &-1 {
                 background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to bottom right, $color-tersiary-light, $color-tersiary-dark);
             }
         }
     }
@@ -56,11 +64,13 @@
         }
 
         &--2 {
-            background-image: url(../img/nat-5.jpg)
+            background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark),
+            url(../img/nat-6.jpg)
         }
 
         &--3 {
-            background-image: url(../img/nat-5.jpg)
+            background-image: linear-gradient(to bottom right, $color-tersiary-light, $color-tersiary-dark),
+            url(../img/nat-7.jpg)
         }
     }
 
@@ -87,5 +97,62 @@
             rgba($color-secondary-light, 0.8),
             rgba($color-secondary-dark, 0.8));
         }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-tersiary-light, 0.8),
+            rgba($color-tersiary-dark, 0.8));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-gray-light-2; 
+                }
+            }
+        }
+    }
+
+    //BACK SIDE STYLING
+    &__cta {
+       position: absolute; 
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 90%;
+       text-align: center;
+    }
+
+    &__price-box {
+        margin-bottom: 8rem;
+        color: $color-white;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
