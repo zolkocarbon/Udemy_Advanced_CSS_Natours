@@ -1,5 +1,14 @@
 # Notes from Udemy Course Advanced CSS and SASS
 
+### Table of Contents
+1. BEM syling of CSS
+1. SASS Variables
+
+
+### Resources
+Images for project were found at: [Unspash](https://unsplash.com/)
+
+
 ### Process of building CSS sheet
 - Block Element Modifier - BEM
     ```css
@@ -380,7 +389,7 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 <i class="feature-box__icon icon-basic-map"></i>
 ```
 #### Another way to create the "skewed section" design.
-+  [Used here](sass/pages/_home.scss)
++  [Used here](sass/pages/_home.scss) for this project.
 + This will skew all the content. The background image and the four boxes in the section. To undo the skew for the boxes look at the next section.
 ```scss
 .section-features {
@@ -388,7 +397,7 @@ transform: skewY(2deg) skewX(15deg) scale(1.1);
 }
 ```
 #### How and when to use the direct child.
-+  Also [Used here](sass/pages/_home.scss) Here we undo the skew for the four boxes in our feature section.
++  Also [used here](sass/pages/_home.scss) in this project. Here we undo the skew for the four boxes in our feature section.
 ```scss
 .section-features {
     transform: skewY(-7deg) translateY(-10rem);
@@ -405,6 +414,67 @@ HTML for this section where direct child selected is row
     </div>
 </section>
 ```
+
+## Building the tours section
+This section of the project has three rotating cards, covers perspective, backface-visibility, background blend models and box-decoration-break. Card properties are defined in [this file](sass/components/_card.scss)
+
+#### How to use perspective in CSS
+This property skews the item in a transform to give it a feeling of getting closer to the page. Like flipping page in a book.
+This example has will rotate the card 180 degrees in the Y axis and skew the card during the rotation.
+
+The lower the number in the *perspective* property the higher the skew effect.
+```scss
+.card {
+    perspective: 150rem; // choose huge number, arbitrary
+    -moz-perspective: 150rem; // firefox coverage
+
+       &:hover &__side--front { // .card:hover .card_side--front
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }    
+}
+```
+
+#### How to use the backface-visibility property
+In order to hide the back of the card we use this property
+```scss
+.card {
+
+    &__side {
+        backface-visibility: hidden;
+```
+#### Using background blend modes
+This property blends layers, in our project its a gradient and an image. 
+
+Using this property causes the image to overflow outside parent so the fix is to use *overflow: hidden*
+
+Not supported in Internet Explorer.
+
+[W3 Documentation for different modes](https://www.w3schools.com/cssref/pr_background-blend-mode.asp)
+```scss
+    // FRONT SIDE STYLING
+.card {
+
+   &__side {
+       
+        border-radius: 3px;
+        overflow: hidden; //hides image overflow from image property "background-blend-mode" below
+
+    &__picture{ //in child div of above selector
+        background-blend-mode: screen;
+
+        &--1 {
+            background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark), 
+            url(../img/nat-5.jpg)
+        }
+```
+
+#### How and when to use box-decoration-break
+
+
 
 
     

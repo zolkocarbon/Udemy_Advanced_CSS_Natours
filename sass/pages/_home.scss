@@ -14,9 +14,16 @@
         url(../img/nat-4.jpg);
     background-size: cover;
     
-    transform: skewY(-7deg) translateY(-10rem);
+    transform: skewY(-7deg); // I used translateY(-10rem) to move it up
+    margin-top: -10rem; // instructor used this
 
     & > * { // select direct child, which in this case is .row
         transform: skewY(7deg);
     }
+}
+
+.section-tours {
+    background-color: $color-gray-light-1;
+    padding: 25rem 0 50rem 0; //top right bottom left
+    margin-top: -10rem;
 }

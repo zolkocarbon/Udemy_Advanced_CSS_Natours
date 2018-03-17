@@ -1,0 +1,91 @@
+.card {
+
+    // FUNCTIONALITY
+    perspective: 150rem; // choose huge number, arbitrary
+    -moz-perspective: 150rem; // firefox coverage
+    position: relative; // this collapses the card to no height and eliminates perspective
+    height: 50rem; //fixes issue mentioned in line above
+    
+
+    &__side {
+        
+        height: 50rem;
+        transition: all 0.8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; // without this the div will only take up width of text content due to absolute position
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden; //hides image overflow from image property "background-blend-mode" below
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        
+
+        &--front {
+            background-color: $color-white;
+        }
+    
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front { // .card:hover .card_side--front
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }    
+
+    // FRONT SIDE STYLING
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;// doesn't work in Internet Explorer
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to bottom right, $color-secondary-light, $color-secondary-dark), 
+            url(../img/nat-5.jpg)
+        }
+
+        &--2 {
+            background-image: url(../img/nat-5.jpg)
+        }
+
+        &--3 {
+            background-image: url(../img/nat-5.jpg)
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%; // to break it up into two lines
+        z-index: 1; // bottom was getting chopped off from clip path, this fix was in Q&A
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone; // heading text is treated as one sentence which messes up the padding, this is the fix
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-secondary-light, 0.8),
+            rgba($color-secondary-dark, 0.8));
+        }
+    }
+}
