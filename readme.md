@@ -474,6 +474,7 @@ Not supported in Internet Explorer.
 
 #### How and when to use `box-decoration-break`
 <img src="img/boxdecoration_before.jpg" width="400"><img src="img/boxdecoration_after.jpg" width="400">
+
 The `box-decoration-break` property is used to here for the text that overflows to the next line, "THE SEA EXPLORER".
 On the left is the original element without the style applied. Since it overflows there is no padding added between the SEA and 
 EXPLORER words as it is being treated as a single element. The right is after the property where the padding is applied evenly around the 
@@ -490,6 +491,19 @@ entire text.
         The Sea Explorer
 </span>
 ```
+## Building the customer feedback section
+
+#### How to make text flow around shapes with `shape-outside` and `float`
+
+#### How to apply a `filter` to images
+
+#### How to create a background video covering an entire section
+
+#### How to use the `video` HTML element
+
+#### How and when to use the `object-fit` propert
+
+
 
 
 

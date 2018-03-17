@@ -17,10 +17,10 @@
         width: 100%; // without this the div will only take up width of text content due to absolute position
         backface-visibility: hidden;
         border-radius: 3px;
-        overflow: hidden; //hides image overflow from image property "background-blend-mode" below
+        overflow: hidden; 
+    //hides image overflow from image property "background-blend-mode" below, no radius was showing up in the corners
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
         
-
         &--front {
             background-color: $color-white;
         }
