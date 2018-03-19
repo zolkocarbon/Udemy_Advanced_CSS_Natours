@@ -494,7 +494,7 @@ entire text.
 ## Building the customer feedback section
 
 #### How to make text flow around shapes with `shape-outside` and `float`
-<img src="img/rm_shape_outside.jpg" width="400">
+<img src="img/rm_shape_outside.JPG" width="400">
 ```scss
 .story {
     &__shape {
