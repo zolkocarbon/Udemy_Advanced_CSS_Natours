@@ -7,6 +7,7 @@
 
 ### Resources
 Images for project were found at: [Unspash](https://unsplash.com/)
+Videos for project were found at: [Coverr](https://coverr.co/)
 
 
 ### Process of building CSS sheet
@@ -521,9 +522,9 @@ In this section we want to skew the parent container and unskew the children. Be
         float: left;
         transform: translateX(-3rem);
 ```
-but notice that we have two transforms here. When CSS sees this it will only choose the last one so we need another solution.
+But notice that we have two transforms here. When CSS sees this it will only choose the last one so we need another solution.
 
-Here, we apply the unskew directly to the elements we want
+Here, we apply the unskew directly to the elements we want and it fixes the issue above.
 ```scss
 .story {
     transform: skewX(-12deg); //skew parent
@@ -546,13 +547,47 @@ Here, we apply the unskew directly to the elements we want
         filter: brightness(80%) blur(3px);
     }
 ```
-    > Note: if brightness and blur are reveresed in order the image shakes. 
+
+> Note: if brightness and blur are reveresed in order the image shakes. 
 
 #### How to create a background video covering an entire section
+HTML section
+```html
+<div class="bg-video">
+    <video class="bg-video__content" autoplay muted loop>
+        <source src="img/video.mp4" type="video/mp4">
+        <source src="img/video.mp4" type="video/webm">
+            Your browser is not supported.
+    </video>
+</div>
+```
 
-#### How to use the `video` HTML element
+SCSS section
+```scss
+.bg-video {
+    // fit inside parent element
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    z-index: -1; // to ensure it's behind everything
+    opacity: .15; // to make it more clear
+    overflow: hidden; // to clip the left/right sides so it doesn't overflow from container element
+
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+```
 
 #### How and when to use the `object-fit` propert
+Example above. This property is intended for embedded media and determines how an element responds to height and width of it's content box.
+
+[Link to examples of `object-fit`](https://css-tricks.com/almanac/properties/o/object-fit/)
 
 
 
