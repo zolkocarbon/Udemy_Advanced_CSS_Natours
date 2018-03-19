@@ -589,6 +589,36 @@ Example above. This property is intended for embedded media and determines how a
 
 [Link to examples of `object-fit`](https://css-tricks.com/almanac/properties/o/object-fit/)
 
+## Form Section
+
+#### How to implement "solid-color gradients"
+<img src="img/rm_solid_gradient.jpg">
+
+```scss
+.book {
+    background-image:   linear-gradient(    105deg,
+                                            rgba($color-white, .9) 0%,
+                                            rgba($color-white, .9) 50%,
+                                            orangered 50%),
+                        url(../img/nat-10.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
+
+    height: 50rem;
+}
+```
+
+#### How the general and adjacent sibling selectors work and why we need them
+
+#### How to use the `::input-placeholder` pseudo-element
+
+#### How and when to use the `:focus`, `:invalid`, `placeholder-shown`, and `:checked` pseudo-classes
+
+#### Techniques to build custom radio buttons
+
+
+
 
 
 
