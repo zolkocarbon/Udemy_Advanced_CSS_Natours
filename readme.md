@@ -494,6 +494,18 @@ entire text.
 ## Building the customer feedback section
 
 #### How to make text flow around shapes with `shape-outside` and `float`
+<img src="img/rm_shape_outside.jpg" width="400">
+```scss
+.story {
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        background-color: orangered;
+        float: left;
+    // Shape-outside is to get text to wrap around a shape
+        -webkit-shape-outside: circle(50% at 50% 50%); //Safari
+        shape-outside: circle(50% at 50% 50%); //only works if floated and has height/width defined.
+```
 
 #### How to apply a `filter` to images
 
