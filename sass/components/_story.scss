@@ -5,4 +5,56 @@
     background-color: $color-white;
     border-radius: 3px;
     padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+    // Shape-outside is to get text to wrap around a shape
+        -webkit-shape-outside: circle(50% at 50% 50%); //Safari
+        shape-outside: circle(50% at 50% 50%); //only works if floated and has height/width defined.
+    // Clip-path is used here but border-radius could have also been used
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);; //don't use margin on floated elements, use transform
+        position: relative;
+    }
+
+    &__img {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        transition: all .5s;
+        backface-visibility: hidden; // fix shape issue from transform
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden; //fix shake issue from transform
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: brightness(80%) blur(3px);
+    }
 }

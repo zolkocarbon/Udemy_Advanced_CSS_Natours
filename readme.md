@@ -494,7 +494,7 @@ entire text.
 ## Building the customer feedback section
 
 #### How to make text flow around shapes with `shape-outside` and `float`
-<img src="img/rm_shape_outside.JPG" width="400">
+<img src="img/rm_shape_outside.JPG">
 ```scss
 .story {
     &__shape {
@@ -507,7 +507,46 @@ entire text.
         shape-outside: circle(50% at 50% 50%); //only works if floated and has height/width defined.
 ```
 
+#### Issues with applying `transform` property more than once on an element
+In this section we want to skew the parent container and unskew the children. Before we did it like this:
+```scss
+.story {
+    transform: skewX(-12deg); //skew parent
+
+    & > * {
+        transform: skewX(12deg); //unskew direct child
+    }
+
+    &__shape {
+        float: left;
+        transform: translateX(-3rem);
+```
+but notice that we have two transforms here. When CSS sees this it will only choose the last one so we need another solution.
+
+Here, we apply the unskew directly to the elements we want
+```scss
+.story {
+    transform: skewX(-12deg); //skew parent
+
+    &__shape {
+        float: left;
+        transform: translateX(-3rem) skewX(12deg);
+    
+    &__text {
+        transform: skewX(12deg);
+    }
+```
+
 #### How to apply a `filter` to images
+[Link to MDN example](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
+```scss
+.story {
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: brightness(80%) blur(3px);
+    }
+```
+    > Note: if brightness and blur are reveresed in order the image shakes. 
 
 #### How to create a background video covering an entire section
 
