@@ -16,6 +16,7 @@
         // this line allows for that space to be occupied when not focused also
         width: 90%;
         display: block;
+        transition: all 0.3s;
 
         &:focus {
             outline: none;
@@ -27,7 +28,7 @@
             border-bottom: 3px solid $color-secondary-dark;
         }
 
-        &::-webkit-input-placeholder {
+        &::-webkit-input-placeholder { //Safari + Chrome
             color: $color-gray-dark-2;
         }
     }
@@ -42,7 +43,8 @@
         transform: translateY(-9rem);
     }
 
-    &__input:placeholder-shown + &__label { //adjacent sibling
+    // the sibling we select always has to be after the main (first CSS selector, here its &__input)
+    &__input:placeholder-shown + &__label { //adjacent sibling (+), can also use general sibling (~)
        opacity: 0;
        visibility: hidden;
        transform: translateY(-4rem);

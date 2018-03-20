@@ -612,8 +612,66 @@ Example above. This property is intended for embedded media and determines how a
 #### How the general and adjacent sibling selectors work and why we need them
 
 #### How to use the `::input-placeholder` pseudo-element
+Pseudo-elementsa are represented by the `::` notation and styles items that are on the page (as opposed to hover for example).
+
+Pseudo-classes are represented by the `:` notation and style an element based on its state.
+
+This selector is used to style the placeholder in a form input. Here we are changing the default color.
+```scss
+.form {
+
+    &__input {
+        &::-webkit-input-placeholder { //Safari + Chrome
+            color: $color-gray-dark-2;
+        }
+```
 
 #### How and when to use the `:focus`, `:invalid`, `placeholder-shown`, and `:checked` pseudo-classes
+In this project we use the `:focus` and `:invalid` selectors to change the bottom margin on a form input based on whether it's valid or 
+not.
+
+<img src="img/rm_focus_valid.jpg" width="550px">
+
+```scss
+.form {
+    &__input {
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary; // Green
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark; // Orange
+        }
+```
+#### How to use the `placeholder-shown` pseudo-classes along with the adjacent sibling property
+This selector is used in this project to hide the input field label while the placeholder is displayed. As soon as the input
+field is selected the label transitions in to full opacity and moves in the Y direction. 
+
+The `+` is the adjacent sibling selector which selects the next ajacent element. The element on the right side of the + needs
+to come after the element on the left in the HTML markup for this to work. Also, the general sibling `~` selector can be used if 
+the desired element on the right does not come immediatly after the one on the left. Sibling elements must have the same parent element.
+
+[Lecture 46 11:45](https://www.udemy.com/advanced-css-and-sass/learn/v4/t/lecture/8274518?start=706)
+
+[W3Schools example](https://www.w3schools.com/css/tryit.asp?filename=trycss_sel_element_pluss) The parent is body and immediate adjacent is Paragraph 3.
+
+[W3Schools other combinators](https://www.w3schools.com/css/css_combinators.asp)
+
+```scss
+.form {
+    &__label {
+        transition: all .3s;
+        transform: translateY(-9rem);
+    }
+
+    &__input:placeholder-shown + &__label { //adjacent sibling (+), can also use general sibling (~)
+       opacity: 0;
+       visibility: hidden;
+       transform: translateY(-4rem);
+```
+
 
 #### Techniques to build custom radio buttons
 
