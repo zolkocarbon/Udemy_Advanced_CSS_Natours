@@ -609,8 +609,6 @@ Example above. This property is intended for embedded media and determines how a
 }
 ```
 
-#### How the general and adjacent sibling selectors work and why we need them
-
 #### How to use the `::input-placeholder` pseudo-element
 Pseudo-elementsa are represented by the `::` notation and styles items that are on the page (as opposed to hover for example).
 
@@ -674,6 +672,40 @@ the desired element on the right does not come immediatly after the one on the l
 
 
 #### Techniques to build custom radio buttons
+In CSS we cannot directly style the radio buttons so we can hide the default ones and create our own.
+```scss
+.form {
+    &__radio-button {
+            height: 3rem;
+            width: 3rem;
+            border: 5px solid $color-primary;   //creates the outline
+            border-radius: 50%;                 //creates the circle shape
+            display: inline-block;              //height and width only work on block elements
+            position: absolute;                 //position it next to label
+            left: 0;
+            top: -.4rem;
+
+            &::after {
+                content: ""; // required for ::after
+                display: block; // required for ::after
+                height: 1.3rem;
+                width: 1.3rem;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;                           // ------------------
+                left: 50%;                          // this section gets it centered on the parent
+                transform: translate(-50%, -50%);   // ------------------
+                background-color: $color-primary;
+                opacity: 0;                         // to immitate unchecked
+                transition: all 0.3s;
+            }
+        }
+
+        &__radio-input:checked + &__radio-label &__radio-button::after {
+            opacity: 1;                             // to immitate checked
+        }
+```
+
 
 
 
