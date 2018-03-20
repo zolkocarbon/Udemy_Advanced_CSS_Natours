@@ -685,7 +685,7 @@ In CSS we cannot directly style the radio buttons so we can hide the default one
             left: 0;
             top: -.4rem;
 
-            &::after {
+            &::after { // creates the center checked section of radio button
                 content: ""; // required for ::after
                 display: block; // required for ::after
                 height: 1.3rem;
