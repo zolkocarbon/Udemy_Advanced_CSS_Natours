@@ -706,6 +706,16 @@ In CSS we cannot directly style the radio buttons so we can hide the default one
         }
 ```
 
+## Navigation section
+#### What the "checkbox hack" is and how it works
+
+#### Hot to create custom animation timing fuctions using cubic bezier curves
+
+#### How to animate "solid-color gradients"
+
+#### How and why to use `transform-origin`
+
+
 
 
 
