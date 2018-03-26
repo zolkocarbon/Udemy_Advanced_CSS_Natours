@@ -698,3 +698,21 @@ body {
   .book__form {
     width: 50%;
     padding: 6rem; }
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 13; }
+  .popup__content {
+    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background-color: white; }

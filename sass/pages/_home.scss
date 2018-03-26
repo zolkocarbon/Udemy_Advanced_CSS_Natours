@@ -56,3 +56,22 @@
         padding: 6rem;
     }
 }
+
+.popup {
+    background-color: rgba($color-black, 0.9);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 13;
+
+    &__content {
+        position: relative;
+        @include center_element;
+        width: 80%;
+        height: 60%;
+        background-color: white;
+
+    }
+}

@@ -119,25 +119,20 @@
 
     }
 
-    &__button:hover &__icon::before {
-        top: -1rem;
-    }
-
-    &__button:hover &__icon::after {
-        top: 1rem;
-    }
+    &__button:hover &__icon::before {top: -1rem;}
+    &__button:hover &__icon::after {top: 1rem;}
 
     &__checkbox:checked + &__button &__icon { // select sibling and then child
         background-color: transparent; // hide middle dash
     }
 
     &__checkbox:checked + &__button &__icon::before { 
-        top: 0;
+        top: 0; // put dash back to middle
         transform: rotate(135deg); 
     }
 
     &__checkbox:checked + &__button &__icon::after { 
-        top: 0;
+        top: 0; // put dash back to middle
         transform: rotate(-135deg); 
     }
 }

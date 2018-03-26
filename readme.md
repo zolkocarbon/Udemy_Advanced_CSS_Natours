@@ -773,6 +773,13 @@ Note: added mixin center_element -> can go through project to use in other areas
 
 ## Building a pure CSS Popup
 
+#### How to use the `:target` pseudo-class
+
+#### How to create boxes with equal height using `display: table-cell;`
+
+#### How to create CSS text columns
+
+#### How to automatically hyphenate words using `hyphens`
 
 
 
