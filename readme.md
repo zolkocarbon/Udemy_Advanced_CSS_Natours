@@ -736,6 +736,16 @@ a fixed circle for the menu button and pressing it created a "when checked" tran
 ```
 
 #### Hot to create custom animation timing fuctions using cubic bezier curves
+[Link to ease functions reference](http://easings.net/)
+
+[Custom cubic-bezier functions](http://cubic-bezier.com/#.17,.67,.83,.67)
+
+```scss
+    &__nav {
+        opacity: 0;
+        width: 0; // to hide content
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55); // values from link above
+```
 
 #### How to animate "solid-color gradients"
 Our menu uses a solid-color gradient on hover effect. The background is scaled to 215% in container which makes it hidden and able to cover entire container on hover. The `background-position` in the hover behavior shifts the background image.
@@ -759,9 +769,9 @@ Our menu uses a solid-color gradient on hover effect. The background is scaled t
         }
 ```
 
-#### How and why to use `transform-origin`
+Note: added mixin center_element -> can go through project to use in other areas
 
-added mixin center_element -> can go through project to use in other areas
+## Building a pure CSS Popup
 
 
 
