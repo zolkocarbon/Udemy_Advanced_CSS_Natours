@@ -1,0 +1,80 @@
+.navigation {
+    &__checkbox {
+        display: none;
+    
+    }
+    
+    &__button { // white circle for menu button
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        background-color: $color-white;
+        z-index: 12;
+    }
+
+    &__background { // green circle behind white circle above
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 10;
+
+        transform: scale(80);
+
+    }
+
+    &__nav {
+        height: 100vh;
+        width: 100%; // not necessary
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 11
+    }
+
+    &__list {
+        @include center_element; //mixin
+        list-style: none;
+
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block; // required for padding and translateX
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 220%;
+            transition: all 0.5s;
+
+            span {
+                margin-right: 1rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%; // 100% aligns last pixel of image with last pixel of container, 
+            // here y is not specified so it's set to 50% by default
+            color: $color-primary;
+            transform: translateX(1rem);
+        }
+        
+    }
+}

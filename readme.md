@@ -708,12 +708,60 @@ In CSS we cannot directly style the radio buttons so we can hide the default one
 
 ## Navigation section
 #### What the "checkbox hack" is and how it works
+Like custom radio buttons above, we create event behavior when a checkbox element is clicked. The navigation section has 
+a fixed circle for the menu button and pressing it created a "when checked" transition to a gradient background.
+
+[Link to CodePen of this menu](https://codepen.io/zolkocarbon/pen/Zxegpa?editors=1100)
+```scss
+.navigation {
+    &__checkbox {
+        display: none;
+    }
+
+    &__background { // green background
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient(#7ed56f, #28b485);
+        z-index: 10;
+        transition: all 1s;
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+```
 
 #### Hot to create custom animation timing fuctions using cubic bezier curves
 
 #### How to animate "solid-color gradients"
+Our menu uses a solid-color gradient on hover effect. The background is scaled to 215% in container which makes it hidden and able to cover entire container on hover. The `background-position` in the hover behavior shifts the background image.
+
+[CodePen showing this behavior](https://codepen.io/zolkocarbon/pen/Zxegpa?editors=1100)
+```scss
+.navigation {
+    &__link {
+        &:link,
+        &:active {
+        display: block;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+        background-size: 215%; // scales background image
+        transition: all 0.9s;
+
+        &:hover,
+        &:active {
+        background-position: 100%;
+        color: #7ed56f;
+        transform: translateX(1rem);
+        }
+```
 
 #### How and why to use `transform-origin`
+
+added mixin center_element -> can go through project to use in other areas
 
 
 
