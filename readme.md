@@ -850,7 +850,7 @@ To close the popup, we add an html button that changes the target from the popup
 ```html
 <section class="section-tours" id="section-tours">
 <!-- add id to section where the popup buttom originated -->
-<a href="#section-tours" class="popup__close"></a>
+<a href="#section-tours" class="popup__close">&times;</a>
 <!-- add a link element in the popup to change the target -->
 ```
 
