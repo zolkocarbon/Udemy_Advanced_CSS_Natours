@@ -854,6 +854,26 @@ To close the popup, we add an html button that changes the target from the popup
 <!-- add a link element in the popup to change the target -->
 ```
 
+## Mobile-first vs Desktop-first
+The instructor has been desigining this project from a desktop first approach and will add media queries to shrink the design for smaller
+screens.
+
+Media queries don't add any specificity to selectors, so code order matters. Media queries should therefore be added to the end.
+
+#### Selecting our breakpoints
+BAD way(most common): set breakpoints for specific devices such as iPhone, iPad. Too secific and not very future proof for evolving mobile devices.
+
+GOOD way: pick most common devices, group them and pick breakpoints for the groups. Used in this project. Use [this resource](http://gs.statcounter.com/screen-resolution-stats) to get common
+screen resolutions. Image below is from this website.
+<img src="img/rm_resolution.png" width="100%">
+Common breakpoints based on data:
+- phone (>600px)
+- tablet (portrait) (>900px)
+- tablet (landscape) (>1200px)
+- desktop (>1800px)
+
+PERFECT way: ignore devices and simply create design breaks based on the content of the project. Most difficult.
+
 
 
 
