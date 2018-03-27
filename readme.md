@@ -7,7 +7,10 @@
 
 ### Resources
 Images for project were found at: [Unspash](https://unsplash.com/)
+
 Videos for project were found at: [Coverr](https://coverr.co/)
+
+Looking up supported CSS in browsers: [Can I use](https://caniuse.com/)
 
 
 ### Process of building CSS sheet
@@ -773,13 +776,83 @@ Note: added mixin center_element -> can go through project to use in other areas
 
 ## Building a pure CSS Popup
 
-#### How to use the `:target` pseudo-class
-
 #### How to create boxes with equal height using `display: table-cell;`
+```scss
+.popup {
+    &__content { //both __left and __right are nested inside this selector
+        display: table;
+    }
+
+    &__left {
+        width: 33.33333%;
+        display: table-cell;
+        
+    }
+
+    &__right {
+        width: 66.666667%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+```
 
 #### How to create CSS text columns
+<img src="img/rm_column.jpg" width="100%">
+
+```scss
+.popup {
+    &__text {
+        font-size: 1.4rem;
+
+        column-count: 2;
+        column-gap: 4rem; //overrides default value which is defined font-size
+        column-rule: 1px solid $color-gray-dark; //line between columns
+    }
+```
 
 #### How to automatically hyphenate words using `hyphens`
+```scss
+.popup {
+    &__text {
+    hyphens: auto; //only works with <html lang="en"> defined
+    // also, for Chrome only works on Android/Mac platforms
+```
+
+#### How to use the `:target` pseudo-class
+This section adds the functionality to open and close the popup. 
+
+The popup is opened through the following changes.
+
+HTML: 
+```html
+<a href="#popup" class="btn btn--white">Book now!</a> 
+<!-- add #popup to desired button, this will be the anchor link -->
+
+<div class="popup" id="popup">
+    <!-- add id of popup to section with desired content -->
+```
+SCSS:
+```scss
+.popup {
+    // Hide popup
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    // Show popup
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+```
+
+To close the popup, we add an html button that changes the target from the popup id to another id
+```html
+<section class="section-tours" id="section-tours">
+<!-- add id to section where the popup buttom originated -->
+<a href="#section-tours" class="popup__close"></a>
+<!-- add a link element in the popup to change the target -->
+```
 
 
 
