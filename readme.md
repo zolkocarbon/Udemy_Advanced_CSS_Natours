@@ -874,16 +874,64 @@ Common breakpoints based on data:
 
 PERFECT way: ignore devices and simply create design breaks based on the content of the project. Most difficult.
 
+#### Using SASS mixins to write all our media queries
+```scss
+// MEDIA QUERY MANAGER
+/*
+0-600px:        Phone
+600-900px:      Tablet portrait
+900-1200px:     Tablet landscate
+1200-1800px:    our normal styles apply
+1800 px +       Big desktop
 
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
 
+1em = 16px
+using em because it will adopt to browser font size set
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content }; // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content }; // 1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content }; // 1800px
+    }
+}
+```
 
+#### How to use the `@content` and `@if` SASS directives
+The mixin above uses `@content` as a variable and passes all the content in the mixin call. This is very similar to a function being passed an argument. Below is an example of a use for the mixin.
 
+Note: the order of the media mixin is very important. You want to apply them in the order shown because if for example tab-land and tab-port were reversed in order this login would happen
 
+- tab-port: is the width < 900px -> yes -> apply these changes
+- tab-land: is the width < 1200px -> also yes -> overwrite changes above and apply tab-land changes
 
+```scss
+html {
+    // This defines what 1rem is.
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5 %
 
     
-
-
-
-
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; // 1rem = 8px, 8/16 = 50% 
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16 = 75%
+    }
+}
+```
 

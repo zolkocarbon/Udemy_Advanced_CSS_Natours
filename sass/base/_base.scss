@@ -11,7 +11,18 @@
 
 html {
     // This defines what 1rem is.
-    font-size: 62.5%;
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5 %
+
+    
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; // 1rem = 8px, 8/16 = 50% 
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16 = 75%
+    }
 }
 /* root font size is set in html selector, this enables rem to be used throughout css */
 /* use 10 as root size as now 1.6rem is easily calculated to 16px */

@@ -1,3 +1,19 @@
+/*
+0-600px:        Phone
+600-900px:      Tablet portrait
+900-1200px:     Tablet landscate
+1200-1800px:    our normal styles apply
+1800 px +       Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+using em because it will adopt to browser font size set
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -39,6 +55,15 @@
 /* box-size here and box-size in body work together */
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 /* root font size is set in html selector, this enables rem to be used throughout css */
 /* use 10 as root size as now 1.6rem is easily calculated to 16px */
