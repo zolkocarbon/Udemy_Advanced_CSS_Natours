@@ -934,4 +934,54 @@ html {
     }
 }
 ```
+#### Order of implementing media queries to SCSS 7 - 1 Architecture
+The instructor recommended the following order for applying media queries
+- Base + typography 
+- General layout + grid
+- Page layout
+- Components
+
+Big changes to grid: changed column width to 100% and marked !important to overwrite any CSS confict. This essentially changed each column to have it's own row.
+```scss
+.row {
+    [class^="col-"] { //select all classes that start with "col-"
+
+        @include respond(tab-port) {
+            width: 100% !important;
+        }
+    }
+```
+
+and a few changes were made to the bottom and right margin for our columns
+```scss
+.row {
+    max-width: $grid-width; //take up 1140px if available, 1140px is standard
+    margin: 0 auto; //center row
+
+    @include respond(tab-port) {
+        max-width: 50rem; //***************** change width of row from 100% to 50rem
+    }
+
+    &:not(:last-child) { // all rows except the last one
+        margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small; // ****************** smaller space between rows
+        }
+    }
+
+        [class^="col-"] { //select all classes that start with "col-"
+        //background-color: orangered;
+        float: left;
+        
+        &:not(:last-child) { //margin for all columns except the last one (furthest right)
+            margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0; // *********** removed space on right of row
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+```
+
 

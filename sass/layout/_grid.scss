@@ -2,9 +2,17 @@
     max-width: $grid-width; //take up 1140px if available, 1140px is standard
     //background-color: #eee;
     margin: 0 auto; //center row
+
+    @include respond(tab-port) {
+        max-width: 50rem;
+    }
     
     &:not(:last-child) { // all rows except the last one
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
     }
 
     @include clearfix;
@@ -15,6 +23,15 @@
         
         &:not(:last-child) { //margin for all columns except the last one (furthest right)
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 
