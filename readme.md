@@ -984,4 +984,43 @@ and a few changes were made to the bottom and right margin for our columns
         }
 ```
 
+## Responsive Images
+
+A proper responsive design not only changes the image physical dimenion in correlation to the screen size but also serves the proper image for each device. A 1 MB image served on a mobile device may be unnecessary while it would be appropriate for a desktop.
+
+When to use responsive images: the 3 use cases
+1. Resolution Switching: Decrease image resolution on smaller screens.
+2. Density Switching: A high resolution screen with a pixel density of 2x vs a low resolution screen. Half the resolution on low res. screens.
+3. Art Direction: Serve a different image on a smaller screen.
+
+#### How to use the `srcset` attribute on the <img> and <source> elements, together with density descriptors
+This is an example of **Density Switching**.
+
+Original HTML for footer logo
+```html
+<div class="footer__logo-box">
+    <img src="img/logo-green-2x.png" alt="Fulll logo" class="footer__logo">
+</div>
+```
+Modified HTML to use two different images
+```html
+<div class="footer__logo-box">
+    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fulll logo" class="footer__logo">
+</div>
+```
+The browser will select the 1x image for low-resolution screens and 2x for high.
+
+#### How and why to use the `<picture>` element for art direction
+Using this element will enable the use of a different image based on the screen size. Below we are using **art direction** to select a different image for screen sizes smaller than 600px and also **desnity switching** to serve a different image based on screen pixel density.
+```html
+<picture class="footer__logo">
+    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+        media="(max-width: 37.5em)">
+    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fulll logo">
+</picture>
+```
+
+#### How to write media queries in HTML
+
+
 
