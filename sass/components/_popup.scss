@@ -20,12 +20,24 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(.5);
         transition: all .5s .2s;
+
+        @include respond(tab-land) {
+            width: 95%;
+        }
+
+        @include respond(tab-port) {
+            display: inline-block;
+        }
     }
 
     &__left {
         width: calc(100% *(1/3));
         // float: left;
         display: table-cell;
+
+        @include respond(tab-port) {
+            display: none;
+        }
         
     }
 
@@ -35,6 +47,11 @@
         display: table-cell;
         vertical-align: middle;
         padding: 0 5rem;
+
+        @include respond(tab-port) {
+            display: inline-block;
+            width: calc(100%);
+        }
     }
 
 
@@ -56,6 +73,11 @@
         -webkit-hyphens: auto;
         hyphens: auto; //only works with <html lang="en"> defined
         // also, for Chrome only works on Android/Mac platforms
+
+        @include respond(tab-land) {
+            column-count: 1;
+            margin-bottom: 1rem;
+        }
     }
 
         // Hide popup

@@ -69,10 +69,33 @@
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
 
-    height: 50rem;
+    //height: 50rem;
+
+    @include respond(tab-land) {
+        background-image:   linear-gradient(    105deg,
+                                            rgba($color-white, .9) 0%,
+                                            rgba($color-white, .9) 70%,
+                                            transparent 70%),
+                        url(../img/nat-10.jpg);
+    }
+
+    @include respond(tab-port) {
+        background-image:   linear-gradient(    to right,
+                                            rgba($color-white, .9) 0%,
+                                            rgba($color-white, .9) 100%),
+                        url(../img/nat-10.jpg);
+    }
 
     &__form {
         width: 50%;
         padding: 6rem;
+
+        @include respond(tab-land) {
+            width: 70%;
+        }
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
     }
 }

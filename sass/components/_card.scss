@@ -160,9 +160,9 @@
     // MAJOR REMAPPING FOR CARD IN MOBILE DEVICES
     @include respond(tab-port) {
         height: auto;
-        border-radius: 3px;
+        border-radius: 3px;  // moved from __side to container element .card
         background-color: $color-white;
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15); // moved from __side
 
         &__side {
             height: auto;
@@ -180,6 +180,10 @@
             transform: rotateY(0);
         }
 
+        &__details {
+            padding: 0 1rem;
+        }
+
         //BACK SIDE STYLING
         &__cta {
         position: relative; 
@@ -187,7 +191,7 @@
         left: 0%;
         transform: translate(0);
         width: 100%;
-        padding: 7rem 4rem;
+        padding: 7rem 4rem 4rem 4rem;
         }
 
         &__price-box {
@@ -195,7 +199,7 @@
         }
 
         &__price-value {
-            font-size: 6rem;
+            font-size: 4rem;
         }
     }
 }
