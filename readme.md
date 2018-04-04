@@ -1040,6 +1040,10 @@ So how do we decide whether to make a 100px small or 300px small image?
 
 Take the smallest display size set on smallest device, let's say a 100px width set for the smallest breakpoint, and double it due to a 2:1 pixel ratio on high-resolution screens. So if your image is being displayed at 100px you want it to be 200px as a high resolution screen would be able to display 1 screen pixel to 1 image pixel.
 
+#### Using the Chrome DevTools to see current image source
+The Chrome inspector can be used to resize the image and see the current image source being used. Also, the pixel ratio can be switched to see the effect. The browser cache will need to be disabled under the Network tab for this to work, otherwise, the browser will not choose any other image after initial page load.
+<img src="img/rm_browser_cache.png" width="100%">
+
 
 
 

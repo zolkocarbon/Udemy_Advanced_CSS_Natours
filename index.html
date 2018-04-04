@@ -78,9 +78,22 @@
                                 class="composition__photo composition__photo--p1"
                                 src="img/nat-1-large.jpg">  <!-- for older browsers -->
 
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                                sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                                alt="Photo 2" 
+                                class="composition__photo composition__photo--p2"
+                                src="img/nat-2-large.jpg">
+
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                                sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                                alt="Photo 3" 
+                                class="composition__photo composition__photo--p3"
+                                src="img/nat-3-large.jpg">
+                            <!--
                             <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                             <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
                             <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                            -->
                         </div>            
                     </div>
                 </div>
@@ -250,9 +263,10 @@
 
             <section class="section-stories">
                 <div class="bg-video">
-                    <video class="bg-video__content" autoplay muted loop>
-                        <source src="img/video.mp4" type="video/mp4">
+                    <video class="bg-video__content" id="bgVideo" autoplay muted loop>
+                        <!-- <source src="img/video.mp4" type="video/mp4">
                         <source src="img/video.mp4" type="video/webm">
+                        USING JQUERY TO ADD SCR BASED ON SCREEN SIZE -->
                             Your browser is not supported.
                     </video>
                 </div>
@@ -464,5 +478,9 @@
             </div>
         </section>
     -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+    <script src="index.js" type="text/javascript"></script>
     </body>
 </html>
