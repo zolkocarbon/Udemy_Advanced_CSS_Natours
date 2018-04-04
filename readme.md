@@ -1010,17 +1010,39 @@ Modified HTML to use two different images
 ```
 The browser will select the 1x image for low-resolution screens and 2x for high.
 
-#### How and why to use the `<picture>` element for art direction
+#### How and why to use the `<picture>` element for art direction and write HTML media queries
 Using this element will enable the use of a different image based on the screen size. Below we are using **art direction** to select a different image for screen sizes smaller than 600px and also **desnity switching** to serve a different image based on screen pixel density.
+
+The src attribute is still included for older browser support that does not use the srcset attribute.
 ```html
 <picture class="footer__logo">
     <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
         media="(max-width: 37.5em)">
-    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fulll logo">
+    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Fulll logo"
+        src="img/logo-green-2x.png"><!-- for older browsers -->
 </picture>
 ```
 
-#### How to write media queries in HTML
+#### How to use resolution switching and the `sizes` attribute
+First line below informs the browser of each image width without downloading them.
+
+Second line informs the browser that the set image size (171px for this feature) will be 20 percent of the viewport width (171/900, rounded to 20%). The browser then selects the best image for the current viewport width. The 300px at the end lets the browser know the default image width anything over 900px.
+```html
+<img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+    alt="Photo 1" 
+    class="composition__photo composition__photo--p1"
+    src="img/nat-1-large.jpg">  <!-- for older browsers -->
+```
+
+#### Suggestions for image resolution brakepoints
+So how do we decide whether to make a 100px small or 300px small image?
+
+Take the smallest display size set on smallest device, let's say a 100px width set for the smallest breakpoint, and double it due to a 2:1 pixel ratio on high-resolution screens. So if your image is being displayed at 100px you want it to be 200px as a high resolution screen would be able to display 1 screen pixel to 1 image pixel.
+
+
+
+
 
 
 
