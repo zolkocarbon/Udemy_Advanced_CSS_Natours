@@ -6,7 +6,7 @@
 
 
 ### Resources
-Images for project were found at: [Unspash](https://unsplash.com/ target="_blank")
+Images for project were found at: [Unspash](https://unsplash.com/?target="_blank")
 
 Videos for project were found at: [Coverr](https://coverr.co/)
 
