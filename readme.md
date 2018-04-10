@@ -6,13 +6,13 @@
 
 
 ### Resources
-Images for project were found at: [Unspash](https://unsplash.com/)
+Images for project were found at: [Unspash](https://unsplash.com/){:target="_blank"}
 
-Videos for project were found at: [Coverr](https://coverr.co/)
+Videos for project were found at: [Coverr](https://coverr.co/){:target="_blank"}
 
-Looking up supported CSS in browsers: [Can I use](https://caniuse.com/)
+Looking up supported CSS in browsers: [Can I use](https://caniuse.com/){:target="_blank"}
 
-Free software for changing video resolution: [HandBrake](https://handbrake.fr/)
+Free software for changing video resolution: [HandBrake](https://handbrake.fr/){:target="_blank"}
 
 
 ### Process of building CSS sheet
@@ -1121,7 +1121,7 @@ Here we are selecting the video element with an id of `bgVideo` and `append`ing 
 **Intresting Lesson**
 An interesting thing I learned here is that if you are going to use a jQuery method like `append` you need to select the element using jQuery also, so `$('#bgVideo')` and NOT `document.getElementById('bgVideo')`
 
-To make the video smaller I used [HandBrake](https://handbrake.fr/) and [these instructions](https://www.online-tech-tips.com/computer-tips/how-to-resize-a-video/)
+To make the video smaller I used [HandBrake](https://handbrake.fr/){:target="_blank"} and [these instructions](https://www.online-tech-tips.com/computer-tips/how-to-resize-a-video/){:target="_blank"}
 
 
 
