@@ -6,7 +6,7 @@
 
 
 ### Resources
-Images for project were found at: [Unspash](https://unsplash.com/?target=_blank)
+Images for project were found at: [Unspash](https://unsplash.com/)
 
 Videos for project were found at: [Coverr](https://coverr.co/)
 
@@ -1089,6 +1089,12 @@ Also, we can add scenario where the screen width is over 2000px to the above med
 @media (min-resolution: 192dpi) and (min-width: 37.5em),
         (min-width: 125em) {
 ```
+Later in the course the instructor found that `resolution` was not supported by Safari so here is the fix:
+```scss
+@media (min-resolution: 192dpi) and (min-width: 37.5em),
+       (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+       (min-width: 125em) {
+```
 #### Video media query
 Not covered in this course but I did a little research to find best practice.
 
@@ -1122,6 +1128,37 @@ Here we are selecting the video element with an id of `bgVideo` and `append`ing 
 An interesting thing I learned here is that if you are going to use a jQuery method like `append` you need to select the element using jQuery also, so `$('#bgVideo')` and NOT `document.getElementById('bgVideo')`
 
 To make the video smaller I used [HandBrake](https://handbrake.fr/) and [these instructions](https://www.online-tech-tips.com/computer-tips/how-to-resize-a-video/)
+
+## Browser Support
+
+[Caniuse](https://caniuse.com/) Check on this site to see if the CSS property works in all browsers.
+
+#### How to use `@supports` feature queries
+Below we will reduce the background opacity to 0.3 and add a background blur if the feature is supported.
+```scss
+.popup {
+    background-color: rgba($color-black, 0.8);
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, 0.3);
+    }
+```
+Note: `backdrop-filter` is currently only supported by Safari.
+
+#### Another example from our project, `backface-visibility`
+We earlier used `backface-visibility` on the card elements which will require a prefix for it to work in Safari. A look at Caniuse shows 
+<img src="img/rm_prefix.png" width="100%">
+```scss
+.card {
+    &__side {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+```
+
+
+
 
 
 

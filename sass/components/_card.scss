@@ -15,6 +15,7 @@
         top: 0;
         left: 0;
         width: 100%; // without this the div will only take up width of text content due to absolute position
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         border-radius: 3px;
         overflow: hidden; 

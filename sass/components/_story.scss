@@ -26,11 +26,18 @@
     // Shape-outside is to get text to wrap around a shape
         -webkit-shape-outside: circle(50% at 50% 50%); //Safari
         shape-outside: circle(50% at 50% 50%); //only works if floated and has height/width defined.
-    // Clip-path is used here but border-radius could have also been used
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+    // Clip-path is used here but border-radius would not work with "shape-outside"
+        //-webkit-clip-path: circle(50% at 50% 50%); ---------------> moved to @supports, Lecture 64
+        //clip-path: circle(50% at 50% 50%);
+
         transform: translateX(-3rem) skewX(12deg);; //don't use margin on floated elements, use transform
         position: relative;
+        overflow: hidden; // this is in case clip path is not supported (Firefox) and images spill out of __shape
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
