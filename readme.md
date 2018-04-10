@@ -12,6 +12,8 @@ Videos for project were found at: [Coverr](https://coverr.co/)
 
 Looking up supported CSS in browsers: [Can I use](https://caniuse.com/)
 
+Free software for changing video resolution: [HandBrake](https://handbrake.fr/)
+
 
 ### Process of building CSS sheet
 - Block Element Modifier - BEM
@@ -1045,7 +1047,7 @@ First line below informs the browser of each image width without downloading the
 Second line informs the browser that the set image size (171px for this feature) will be 20 percent of the viewport width (171/900, rounded to 20%). The browser then selects the best image for the current viewport width. The 300px at the end lets the browser know the default image width anything over 900px.
 ```html
 <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
-    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+    sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
     alt="Photo 1" 
     class="composition__photo composition__photo--p1"
     src="img/nat-1-large.jpg">  <!-- for older browsers -->
@@ -1087,6 +1089,40 @@ Also, we can add scenario where the screen width is over 2000px to the above med
 @media (min-resolution: 192dpi) and (min-width: 37.5em),
         (min-width: 125em) {
 ```
+#### Video media query
+Not covered in this course but I did a little research to find best practice.
+
+HTML5 no longer supports the `media` query inside `video` so a different approach is required. [This article](https://css-tricks.com/video-source-by-screen-size/) showed a jQuery method for doing this media query.
+
+```javascript
+var video = $('#bgVideo');
+
+var WindowWidth = $(window).width();
+
+if (WindowWidth < 900) {
+            //It is a small screen
+           video.append("<source src='img/video-xsmall.mp4' type='video/mp4' >");
+} else {
+            //It is a big screen or desktop
+            video.append("<source src='img/video.mp4' type='video/mp4' >");
+}
+video.append("<source src='img/video.webm' type='video/webm' >");
+```
+```html
+<video class="bg-video__content" id="bgVideo" autoplay muted loop>
+    <!-- <source src="img/video.mp4" type="video/mp4">
+    <source src="img/video.mp4" type="video/webm">
+    USING JQUERY TO ADD SCR BASED ON SCREEN SIZE -->
+        Your browser is not supported.
+</video>
+```
+Here we are selecting the video element with an id of `bgVideo` and `append`ing an element based on screen size. 
+
+**Intresting Lesson**
+An interesting thing I learned here is that if you are going to use a jQuery method like `append` you need to select the element using jQuery also, so `$('#bgVideo')` and NOT `document.getElementById('bgVideo')`
+
+To make the video smaller I used [HandBrake](https://handbrake.fr/) and [these instructions](https://www.online-tech-tips.com/computer-tips/how-to-resize-a-video/)
+
 
 
 
