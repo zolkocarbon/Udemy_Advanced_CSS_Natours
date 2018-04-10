@@ -1,6 +1,6 @@
 # Notes from Udemy Course Advanced CSS and SASS
 
-### Table of Contents
+### Table of Contents (under construction)
 1. BEM syling of CSS
 1. SASS Variables
 
@@ -993,6 +993,22 @@ When to use responsive images: the 3 use cases
 2. Density Switching: A high resolution screen with a pixel density of 2x vs a low resolution screen. Half the resolution on low res. screens.
 3. Art Direction: Serve a different image on a smaller screen.
 
+#### Using proper units for media queries: px, rem, or em?
+<a name="emqueries"></a>
+[Good article about this](https://zellwk.com/blog/media-query-units/)
+
+The best unit to use in media queries is em as it covers browser variety well and adjusts to the user defined browser font size.
+
+Below is an example of the Natours tours section using 900px as a break point and a user setting the browser font size to 20px. When the screen width is set to 916px the grid layout maintains it's 3 column structure.
+<img src="img/rm_900px20px.png" width="100%">
+
+What we want is for the column layout to adjust based on the browser font size. That way things don't look so crowded like above. Below is an example of using em units in media queries break points. At 56.25em and 20px browser font size we now have a break point of 1125px screen width (56.25em*20px). So at 912px (example) screen width the column structure will colapse to single column and anything above 1125px it will go back to a three column layout.
+<img src="img/rm_56em20px.png" width="100%">
+<img src="img/rm_56em20px_large.png" width="100%">
+
+Note: why 56.25em? -> Using the default browser font size (16px) the instructor wanted to create a brake point at 900px, 900px / 16px = 56.25
+
+
 #### How to use the `srcset` attribute on the <img> and <source> elements, together with density descriptors
 This is an example of **Density Switching**.
 
@@ -1043,6 +1059,35 @@ Take the smallest display size set on smallest device, let's say a 100px width s
 #### Using the Chrome DevTools to see current image source
 The Chrome inspector can be used to resize the image and see the current image source being used. Also, the pixel ratio can be switched to see the effect. The browser cache will need to be disabled under the Network tab for this to work, otherwise, the browser will not choose any other image after initial page load.
 <img src="img/rm_browser_cache.png" width="100%">
+
+#### Screen resolution query
+Uses the screen resolution (here in dots per inch) as a media query.
+
+```scss
+@media (min-resolution: 192dpi) { //Apple Retina screen resolution
+    background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary, 0.80),
+    rgba($color-primary-dark, 0.80)),
+    url(../img/hero.jpg);
+}
+```
+The instructor did mention this scenario: a phone at 600px width with a 2.0 pixel ratio displaying our hero.jpg image which is a 2000 pixel width image. It would make more sense to use the hero-small.jpg image which is 1200px wide. Below we modify the code to include a second condition to accomodate this.
+```scss
+@media (min-resolution: 192dpi) and (min-width: 37.5em) {
+    background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary, 0.80),
+    rgba($color-primary-dark, 0.80)),
+    url(../img/hero.jpg);
+}
+```
+Also, we can add scenario where the screen width is over 2000px to the above media query without repeating everything like this:
+```scss
+@media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (min-width: 125em) {
+```
+
 
 
 
