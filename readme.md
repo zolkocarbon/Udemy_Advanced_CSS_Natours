@@ -1166,6 +1166,29 @@ We earlier used `backface-visibility` on the card elements which will require a 
     - npm install autoprefixer --save-dev
     - npm install postcss-cli --save-dev (required to run prefixer)
 4. Compressing - `style.css`
+5. Build script that will run all of the above
+    - npm install npm-run-all --save-dev
+
+Whit the packages installed and package.json scrips below we can run `npm run build:css` to run all the above commands.
+```json
+"scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/style.comp.css css/icon-font.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.min.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  ```
+After we created the final verion of CSS is created we need to change the source file in `index.html` from style.css to style.min.css and we can also remove the icon-font.css file since it's been combined into the final CSS file
+
+#### Building a script to launch development process
+In order to run watch:sass and live-server we can enter both commands into seperate terminals or create another scrip
+```json
+"scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style2.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+```
 
 
 
