@@ -4,7 +4,10 @@
   "description": "Landing page for natours",
   "main": "index.html",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style2.css -w"
+    "watch:sass": "node-sass sass/main.scss css/style2.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/style.comp.css css/icon-font.css",
+    "prefix:css": ""
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,10 @@
   },
   "homepage": "https://github.com/zolkocarbon/Udemy_Advanced_CSS_Natours#readme",
   "devDependencies": {
-    "node-sass": "^4.7.2"
-  }
+    "autoprefixer": "^8.2.0",
+    "concat": "^1.0.3",
+    "node-sass": "^4.7.2",
+    "postcss-cli": "^5.0.0"
+  },
+  "dependencies": {}
 }

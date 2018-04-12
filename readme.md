@@ -1157,6 +1157,20 @@ We earlier used `backface-visibility` on the card elements which will require a 
         backface-visibility: hidden;
 ```
 
+## Setting up a build process with npm scrips
+1. Compile `main.sass` to `style.comp.css`
+2. Concatenation - combine all css files to `style.concat.css`
+    - npm install concat --save-dev
+    - [Documentation for npm concat](https://www.npmjs.com/package/concat)
+3. Autoprefix - `style.prefix.css`
+    - npm install autoprefixer --save-dev
+    - npm install postcss-cli --save-dev (required to run prefixer)
+4. Compressing - `style.css`
+
+
+
+
+
 
 
 
