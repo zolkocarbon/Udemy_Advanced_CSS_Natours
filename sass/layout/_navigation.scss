@@ -12,7 +12,7 @@
         top: 6rem;
         right: 6rem;
         background-color: $color-white;
-        z-index: 12;
+        z-index: 250;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
         text-align: center;
         cursor: pointer;
@@ -36,7 +36,7 @@
         top: 6.5rem;
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
-        z-index: 10;
+        z-index: 200;
         transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         @include respond(tab-port) {
@@ -54,8 +54,8 @@
         height: 100vh;
         position: fixed;
         top: 0;
-        left: 0;
-        z-index: 11;
+        left: -100%;
+        z-index: 210;
 
         opacity: 0;
         width: 0; // to hide content
@@ -110,6 +110,7 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+        left: 0;
     }
 
     // ICON

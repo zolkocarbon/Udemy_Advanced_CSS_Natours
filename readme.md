@@ -1209,6 +1209,21 @@ To exclue the media queries from printing add the following to the _mixins.scss
     }
 ```
 
+#### Responsive meta tag in head of html documents
+The following tag is required in the head of our html tags to make the page responsive
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+#### Identifing touch devices 
+While we do have media queries set up to change the layout of the rotating cards to display all the content without rotation on small screens there are still scenarios that aren't covered. An example would we an iPad in landscape mode. Here the user doesn't have the ability to hover and the media query has not been triggered.
+
+Solution is to add condition into the card media query. Since we were using a mixin (@include resopond(tab-port)) we can't add the condition here so we just write out the media query and add the condition.
+```scss
+@media only screen and (max-width: 56.25em),
+only screen and (hover: none) {
+```
+
 
 
 
