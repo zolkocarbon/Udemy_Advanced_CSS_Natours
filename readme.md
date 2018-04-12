@@ -1189,6 +1189,28 @@ In order to run watch:sass and live-server we can enter both commands into seper
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
 ```
+## Final touches to the Natours project
+
+#### Changing text selection color
+To change the colors of selected text in the website add the following to _base.scss
+```scss
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+```
+
+#### Refining media query for only screens
+To exclue the media queries from printing add the following to the _mixins.scss
+```scss
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+```
+
+
+
 
 
 

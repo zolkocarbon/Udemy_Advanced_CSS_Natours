@@ -57,13 +57,13 @@ using em because it will adopt to browser font size set
 /* box-size here and box-size in body work together */
 html {
   font-size: 62.5%; }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 112.5em) {
+  @media only screen and (min-width: 112.5em) {
     html {
       font-size: 75%; } }
 
@@ -74,9 +74,13 @@ html {
 body {
   box-sizing: border-box;
   padding: 3rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     body {
       padding: 0; } }
+
+::selection {
+  background-color: #55c57a;
+  color: #fff; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -98,7 +102,7 @@ body {
     animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out; }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--main {
         letter-spacing: 1rem;
         font-size: 5rem; } }
@@ -109,7 +113,7 @@ body {
     letter-spacing: 1.75rem;
     animation: moveInRight 2s ease-out;
     /* short hand notation to above */ }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--sub {
         letter-spacing: .5rem; } }
 
@@ -123,10 +127,10 @@ body {
   color: transparent;
   letter-spacing: .2rem;
   transition: all .2s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .heading-secondary {
       font-size: 3rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .heading-secondary {
       font-size: 2.5rem; } }
   .heading-secondary:hover {
@@ -151,13 +155,13 @@ body {
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-medium {
       margin-bottom: 3rem !important; } }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-big {
       margin-bottom: 5rem !important; } }
 
@@ -344,7 +348,7 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .card {
       height: auto;
       border-radius: 3px;
@@ -384,7 +388,7 @@ body {
     z-index: 10;
     transition: all 0.2s;
     outline-offset: 2rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .composition__photo {
         float: left;
         position: relative;
@@ -393,21 +397,21 @@ body {
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p1 {
           top: 0;
           transform: scale(1.2); } }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p2 {
           top: -1rem;
           transform: scale(1.3); } }
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p3 {
           left: 1rem;
           top: 0;
@@ -428,7 +432,7 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: all 0.3s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .feature-box {
       padding: 2rem; } }
   .feature-box__icon {
@@ -438,7 +442,7 @@ body {
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     -webkit-background-clip: text;
     color: transparent; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .feature-box__icon {
         margin-bottom: 0; } }
   .feature-box:hover {
@@ -459,7 +463,7 @@ body {
   width: 90%;
   display: block;
   transition: all 0.3s; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .form__input {
       width: 100%; } }
   .form__input:focus {
@@ -488,7 +492,7 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .form__radio-group {
       width: 100%;
       margin-bottom: 2rem; } }
@@ -558,16 +562,16 @@ body {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
     transition: all .5s .2s; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__content {
         width: 95%; } }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .popup__content {
         display: inline-block; } }
   .popup__left {
     width: calc(100% *(1/3));
     display: table-cell; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .popup__left {
         display: none; } }
   .popup__right {
@@ -575,7 +579,7 @@ body {
     display: table-cell;
     vertical-align: middle;
     padding: 0 5rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .popup__right {
         display: inline-block;
         width: calc(100%); } }
@@ -592,7 +596,7 @@ body {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .popup__text {
         column-count: 1;
         margin-bottom: 1rem; } }
@@ -622,12 +626,12 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .story {
       width: 100%;
       padding: 4rem;
       padding-left: 7rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .story {
       transform: skewX(0); } }
   .story__shape {
@@ -643,7 +647,7 @@ body {
       .story__shape {
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%); } }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
   .story__img {
@@ -653,7 +657,7 @@ body {
     backface-visibility: hidden; }
   .story__text {
     transform: skewX(12deg); }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .story__text {
         transform: skewX(0); } }
   .story__caption {
@@ -680,13 +684,13 @@ body {
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #f7f7f7; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .footer {
       padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 8rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .footer__logo-box {
         margin-bottom: 6rem; } }
   .footer__logo {
@@ -695,7 +699,7 @@ body {
     border-top: 1px solid #eee;
     padding-top: 2rem;
     display: inline-block; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .footer__navigation {
         width: 100%;
         text-align: center; } }
@@ -722,7 +726,7 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .footer__copyright {
         width: 100%;
         float: none; } }
@@ -730,13 +734,13 @@ body {
 .row {
   max-width: 114rem;
   margin: 0 auto; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .row {
       max-width: 50rem;
       padding: 0 3rem; } }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row:not(:last-child) {
         margin-bottom: 6rem; } }
   .row::after {
@@ -747,11 +751,11 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .row [class^="col-"]:not(:last-child) {
           margin-right: 0;
           margin-bottom: 6rem; } }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row [class^="col-"] {
         width: 100% !important; } }
   .row .col-1-of-2 {
@@ -778,10 +782,10 @@ body {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
       height: 95vh; } }
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
@@ -817,11 +821,11 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .navigation__button {
       top: 4rem;
       right: 4rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .navigation__button {
       top: 3rem;
       right: 3rem; } }
@@ -836,11 +840,11 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 10;
   transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .navigation__background {
       top: 4.5rem;
       right: 4.5rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .navigation__background {
       top: 3.5rem;
       right: 3.5rem; } }
@@ -931,7 +935,7 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-about {
       padding: 20rem 0; } }
 
@@ -943,7 +947,7 @@ body {
   margin-top: -10rem; }
   .section-features > * {
     transform: skewY(7deg); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-features {
       padding: 10rem 0; } }
 
@@ -951,21 +955,21 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -10rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-tours {
       padding: 20rem 0 10rem 0; } }
 
 .section-stories {
   padding: 15rem 0;
   position: relative; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-stories {
       padding: 5rem 0; } }
 
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-book {
       padding: 10rem 0; } }
 
@@ -974,18 +978,18 @@ body {
   background-size: cover;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5); }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 70%, transparent 70%), url(../img/nat-10.jpg); } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .book {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
   .book__form {
     width: 50%;
     padding: 6rem; }
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
       .book__form {
         width: 70%; } }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .book__form {
         width: 100%; } }
